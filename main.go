@@ -22,7 +22,7 @@ import (
 var model = resource.NewModel("martha", "maxim", "ds18b20")
 
 func main() {
-	module.ModularMain("maxim", resource.APIModel{Model: model, API: sensor.API})
+	module.ModularMain("ds18b20", resource.APIModel{Model: model, API: sensor.API})
 }
 
 // Config is used for converting config attributes.
