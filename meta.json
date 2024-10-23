@@ -12,7 +12,7 @@
   ],
   "build": {
     "build": "make module",
-    "path": "bin/maxim-module.tar.gz",
+    "path": "bin/maxim-ds18b20-module.tar.gz",
     "arch" : ["linux/arm64", "linux/amd64"]
   },
   "entrypoint": "ds18b20"
