@@ -19,6 +19,7 @@ import (
 )
 
 var Model = resource.NewModel("martha", "maxim", "ds18b20")
+var logger = logging.NewLogger("test")
 
 // Config is used for converting config attributes.
 type Config struct {
@@ -31,39 +32,43 @@ func init() {
 		sensor.API,
 		Model,
 		resource.Registration[sensor.Sensor, *Config]{
-			Constructor: func(
-				ctx context.Context,
-				deps resource.Dependencies,
-				conf resource.Config,
-				logger logging.Logger,
-			) (sensor.Sensor, error) {
-				newConf, err := resource.NativeConfig[*Config](conf)
-				if err != nil {
-					return nil, err
-				}
-				return newSensor(conf.ResourceName(), newConf.UniqueID, logger), nil
-			},
+			Constructor: newSensor,
 		})
 }
 
 // Validate ensures all parts of the config are valid.
 func (cfg *Config) Validate(path string) ([]string, error) {
+	logger.Error("validating config")
 	var deps []string
 	if cfg.UniqueID == "" {
 		return nil, resource.NewConfigValidationFieldRequiredError(path, "unique_id")
 	}
 
+	logger.Error("config validated")
 	return deps, nil
 }
 
-func newSensor(name resource.Name, id string, logger logging.Logger) sensor.Sensor {
+func newSensor(
+	ctx context.Context,
+	_ resource.Dependencies,
+	conf resource.Config,
+	logger logging.Logger,
+) (sensor.Sensor, error) {
+	newConf, err := resource.NativeConfig[*Config](conf)
+	if err != nil {
+		return nil, err
+	}
+
+	id := newConf.UniqueID
+	name := conf.ResourceName()
+
 	// temp sensors are in family 28
 	return &Sensor{
 		Named:         name.AsNamed(),
 		logger:        logger,
 		OneWireID:     id,
 		OneWireFamily: "28",
-	}
+	}, nil
 }
 
 // Sensor is a 1-wire Sensor device.
