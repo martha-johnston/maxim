@@ -14,5 +14,5 @@
       "path": "bin/maxim-module.tar.gz",
       "arch" : ["linux/arm64", "linux/amd64"]
     },
-    "entrypoint": "run.sh"
+    "entrypoint": "maxim"
 }
