@@ -55,7 +55,7 @@ func init() {
 func (cfg *Config) Validate(path string) ([]string, error) {
 	var deps []string
 	if cfg.UniqueID == "" {
-		return nil, resource.NewConfigValidationFieldRequiredError(path, "spi_bus")
+		return nil, resource.NewConfigValidationFieldRequiredError(path, "unique_id")
 	}
 
 	return deps, nil
