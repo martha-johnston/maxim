@@ -1,18 +1,19 @@
 {
-    "module_id": "martha:maxim",
-    "visibility": "public",
-    "url": "https://github.com/martha-johnston/maxim",
-    "description": "Go module for maxim ds18b20 sensor, compatible with Viam",
-    "models": [
-      {
-        "api": "rdk:component:sensor",
-        "model": "martha:maxim:ds18b20"
-      }
-    ],
-    "build": {
-      "build": "make setup module",
-      "path": "bin/maxim-module.tar.gz",
-      "arch" : ["linux/arm64", "linux/amd64"]
-    },
-    "entrypoint": "maxim"
+  "$schema": "https://dl.viam.dev/module.schema.json",  
+  "module_id": "martha:maxim",
+  "visibility": "public",
+  "url": "https://github.com/martha-johnston/maxim",
+  "description": "Go module for maxim ds18b20 sensor, compatible with Viam",
+  "models": [
+    {
+      "api": "rdk:component:sensor",
+      "model": "martha:maxim:ds18b20"
+    }
+  ],
+  "build": {
+    "build": "make module",
+    "path": "bin/maxim-module.tar.gz",
+    "arch" : ["linux/arm64", "linux/amd64"]
+  },
+  "entrypoint": "ds18b20"
 }
