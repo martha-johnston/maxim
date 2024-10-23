@@ -4,7 +4,7 @@ package main
 import (
 	"context"
 
-	"github.com/martha-johnston/maxim/ds18b20"
+	"maxim/ds18b20"
 	"go.viam.com/rdk/components/sensor"
 	"go.viam.com/rdk/logging"
 	"go.viam.com/rdk/module"

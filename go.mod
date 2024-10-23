@@ -2,7 +2,10 @@ module maxim
 
 go 1.23.0
 
-require go.viam.com/rdk v0.40.0
+require (
+	go.viam.com/rdk v0.40.0
+	go.viam.com/utils v0.1.97
+)
 
 require (
 	cloud.google.com/go v0.110.4 // indirect
@@ -110,7 +113,6 @@ require (
 	go.uber.org/zap v1.24.0 // indirect
 	go.viam.com/api v0.1.336 // indirect
 	go.viam.com/test v1.1.1-0.20220913152726-5da9916c08a2 // indirect
-	go.viam.com/utils v0.1.97 // indirect
 	golang.org/x/crypto v0.23.0 // indirect
 	golang.org/x/exp v0.0.0-20230725012225-302865e7556b // indirect
 	golang.org/x/image v0.19.0 // indirect
