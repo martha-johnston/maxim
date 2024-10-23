@@ -19,7 +19,6 @@ import (
 )
 
 var Model = resource.NewModel("martha", "maxim", "ds18b20")
-var logger = logging.NewLogger("test")
 
 // Config is used for converting config attributes.
 type Config struct {
@@ -38,13 +37,11 @@ func init() {
 
 // Validate ensures all parts of the config are valid.
 func (cfg *Config) Validate(path string) ([]string, error) {
-	logger.Error("validating config")
 	var deps []string
 	if cfg.UniqueID == "" {
 		return nil, resource.NewConfigValidationFieldRequiredError(path, "unique_id")
 	}
 
-	logger.Error("config validated")
 	return deps, nil
 }
 
