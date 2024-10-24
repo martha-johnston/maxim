@@ -15,5 +15,5 @@
     "path": "bin/maxim-ds18b20-module.tar.gz",
     "arch" : ["linux/arm64", "linux/amd64"]
   },
-  "entrypoint": "ds18b20"
+  "entrypoint": "bin/ds18b20"
 }
