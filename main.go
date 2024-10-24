@@ -5,6 +5,7 @@ import (
 	"context"
 
 	"maxim/ds18b20"
+
 	"go.viam.com/rdk/components/sensor"
 	"go.viam.com/rdk/logging"
 	"go.viam.com/rdk/module"
